@@ -5,7 +5,7 @@
 ### Running it using maven command line
 
 ```
-    mvn exec:java
+$ mvn exec:java
 ```
 
 
@@ -14,7 +14,7 @@
 first package it and run the generated jar in target folder
 
 ```
-    mvn package
-    java -jar target/dataanon-kotlin-sample-1.0-SNAPSHOT.jar
+$ mvn package
+$ java -jar target/dataanon-kotlin-sample-1.0-SNAPSHOT.jar
 ```
 
