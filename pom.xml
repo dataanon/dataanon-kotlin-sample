@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.1.51</kotlin.version>
+        <kotlin.version>1.1.60</kotlin.version>
     </properties>
 
     <dependencies>
@@ -94,6 +94,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>data-anon</finalName>
     </build>
 
 </project>
