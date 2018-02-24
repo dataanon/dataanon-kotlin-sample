@@ -15,8 +15,6 @@ fun main(args: Array<String>) {
 
     Whitelist(source,dest)
             .table("MOVIES") {
-                where("GENRE = 'Drama'")
-                limit(1_00_000)
                 whitelist("MOVIE_ID","RELEASE_DATE")
                 anonymize("TITLE").using(object: AnonymizationStrategy<String>{
                     override fun anonymize(field: Field<String>, record: Record): String = "MY MOVIE ${record.rowNum}"
@@ -27,7 +25,8 @@ fun main(args: Array<String>) {
                 whitelist("MOVIE_ID","USER_ID","CREATED_AT")
                 anonymize("RATING").using(FixedDouble(4.3))
             }
-            .execute()
+            .execute(true)
+
 }
 
 
