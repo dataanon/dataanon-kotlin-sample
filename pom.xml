@@ -12,19 +12,19 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.version>1.2.30</kotlin.version>
+        <kotlin.version>1.2.41</kotlin.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.github.dataanon</groupId>
             <artifactId>data-anon</artifactId>
-            <version>0.9.3</version>
+            <version>0.9.5</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>1.4.196</version>
+            <version>1.4.197</version>
         </dependency>
     </dependencies>
 

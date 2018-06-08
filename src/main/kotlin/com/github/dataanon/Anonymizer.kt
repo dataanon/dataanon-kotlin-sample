@@ -8,7 +8,7 @@ import com.github.dataanon.strategy.AnonymizationStrategy
 import com.github.dataanon.strategy.datetime.DateRandomDelta
 import com.github.dataanon.strategy.datetime.DateTimeRandomDelta
 import com.github.dataanon.strategy.list.PickFromDatabase
-import com.github.dataanon.strategy.number.FixedDouble
+import com.github.dataanon.strategy.list.PickFromFile
 import java.time.Duration
 
 fun main(args: Array<String>) {
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 
     Whitelist(source,dest)
         .table("MOVIES") {
-            where("GENRE = 'Drama'")
+            where("GENRE IN ('Drama','Action')")
             limit(1_00_000)
             whitelist("MOVIE_ID")
             anonymize("TITLE").using(object: AnonymizationStrategy<String>{
@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
         }
         .table("RATINGS") {
             whitelist("MOVIE_ID","USER_ID")
-            anonymize("RATING").using(FixedDouble(4.3))
+            anonymize("RATING").using(PickFromFile<Float>("/random-ratings.txt")) //data file in resource folder
             anonymize("CREATED_AT").using(DateTimeRandomDelta(Duration.ofSeconds(2000)))
         }
         .execute(true)
